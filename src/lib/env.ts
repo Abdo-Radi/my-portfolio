@@ -76,6 +76,8 @@ const serverSchema = z.object({
   // (and any default) here — e.g. `RESEND_API_KEY: z.string().min(1)`.
   RESEND_API_KEY: emptyToUndefined(z.string().min(1).optional()),
   CONTACT_FROM_EMAIL: emptyToUndefined(z.string().min(1).optional()),
+  // Salt for one-way hashing of client IPs in logs (privacy).
+  IP_HASH_SALT: emptyToUndefined(z.string().min(1).optional()),
 });
 
 type ServerEnv = z.infer<typeof serverSchema>;
