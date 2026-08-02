@@ -3,15 +3,15 @@ import { Counter, RuleDraw } from "@/components/anim";
 /**
  * (04) — four figures, ruled like a table.
  *
- * Every number here is taken straight from `src/data/experience.ts`: deploy
- * time under 4 min, Lighthouse 68 → 98, 12 production apps, 3 engineers
- * mentored. No suffixes, no colour, no claim the CV doesn't already make.
+ * Every number is traceable to a highlight in `src/data/experience.ts`: the
+ * XPI client base, the interface and API speed-ups, and the three languages.
+ * No colour, and no claim the CV doesn't already make.
  */
 const figures = [
-  { value: 4, label: "MIN DEPLOY" },
-  { value: 98, label: "LIGHTHOUSE" },
-  { value: 12, label: "APPS SHIPPED" },
-  { value: 3, label: "ENGINEERS MENTORED" },
+  { value: 5000, suffix: "+", label: "CLIENTS SERVED" },
+  { value: 30, suffix: "%", label: "FASTER INTERFACE" },
+  { value: 60, suffix: "%", label: "FASTER API RESPONSES" },
+  { value: 3, suffix: "", label: "LANGUAGES SPOKEN" },
 ];
 
 export function Metrics() {
@@ -32,7 +32,8 @@ export function Metrics() {
               <Counter
                 to={figure.value}
                 pad={2}
-                className="block font-mono text-[clamp(3rem,7vw,6rem)] leading-[0.85] font-medium tracking-[-0.045em]"
+                suffix={figure.suffix}
+                className="block font-mono text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.85] font-medium tracking-[-0.045em]"
               />
               <figcaption className="t-meta pt-5">{figure.label}</figcaption>
             </figure>

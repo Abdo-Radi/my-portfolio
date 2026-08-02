@@ -1,26 +1,35 @@
 import { clientEnv } from "@/lib/env";
 
 /**
- * Central site configuration. Edit this to personalize the portfolio.
- * Everything here is plain data so it can be imported by Server Components,
- * metadata, sitemap, and OG image generation.
+ * Central site configuration. Everything here is plain data so it can be
+ * imported by Server Components, metadata, sitemap, and OG image generation.
+ *
+ * Kept in sync with the CV in `public/resume.pdf` — if the two disagree, the
+ * CV wins and this file should be corrected.
  */
 export const siteConfig = {
   name: "Abdellah Radi",
   role: "Full-Stack Developer",
-  tagline: "I build fast, accessible web apps with TypeScript and React.",
+  /** The long-form title, as it reads on the CV. */
+  specialism: "Java Spring · Angular · MERN · AI & Automation",
+  tagline:
+    "I build enterprise applications with Java, Spring Boot and the MERN stack — and wire AI into the workflows around them.",
   description:
-    "Portfolio of Abdellah Radi — full-stack developer specializing in Next.js, TypeScript, and cloud-native delivery.",
+    "Portfolio of Abdellah Radi — full-stack developer in Casablanca. Fintech interfaces at scale, Java/Spring Boot and MERN applications, and AI integration with Gemini, OpenAI and n8n.",
   // Used for absolute URLs (sitemap, OG, canonical). Set via the validated
   // NEXT_PUBLIC_SITE_URL environment variable (see src/lib/env.ts).
   url: clientEnv.NEXT_PUBLIC_SITE_URL,
   email: "abdellahradi30@gmail.com",
-  location: "Morocco",
+  /** Display form; `tel:` links strip the spaces. */
+  phone: "+212 693 185 212",
+  location: "Casablanca, Morocco",
   resumeUrl: "/resume.pdf",
   socials: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://www.linkedin.com/in/yourusername",
+    linkedin: "https://www.linkedin.com/in/abdellah-radi/",
   },
 } as const;
+
+/** `+212 693 185 212` → `+212693185212`, for `tel:` hrefs. */
+export const phoneHref = `tel:${siteConfig.phone.replace(/\s+/g, "")}`;
 
 export type SiteConfig = typeof siteConfig;

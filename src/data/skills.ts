@@ -36,7 +36,7 @@ export const skills: SkillGroup[] = [
       "PostgreSQL",
       "MySQL",
       "PL/SQL",
-      "Vector databases (RAG)",
+      "Vector search (Pinecone, Milvus)",
     ],
   },
   {

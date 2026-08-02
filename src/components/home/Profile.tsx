@@ -40,16 +40,17 @@ export function Profile() {
 
           <Reveal stagger={0.08} className="mt-9 space-y-5 md:mt-11">
             <p className="t-body">
-              A full-stack engineer based in {siteConfig.location}. Java and
-              Spring Boot on one side, Python and FastAPI on the other, React
-              and Angular in front. I like owning a feature from the schema all
-              the way out to the pixel.
+              A full-stack developer in {siteConfig.location}, with a background
+              in fintech. At XPI I designed and optimised the payment management
+              interface behind 5,000+ professional clients — the kind of
+              software where being careless is expensive.
             </p>
             <p className="t-body">
-              Most of that work is now AI-shaped: wiring Gemini and OpenAI into
-              products that already exist, building retrieval pipelines that
-              return the right context instead of a confident guess, and
-              automating the parts nobody should have to do twice.
+              I build enterprise applications with Java, Spring Boot and the
+              MERN stack, and I&rsquo;m now spending most of my time bridging
+              that to AI: Gemini and OpenAI behind real endpoints, RAG for
+              retrieval that returns context instead of a confident guess, and
+              n8n workflows that remove the steps nobody should repeat by hand.
             </p>
           </Reveal>
 

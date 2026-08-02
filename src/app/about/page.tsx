@@ -5,6 +5,7 @@ import { Counter, Magnetic, RuleDraw, SplitLines } from "@/components/anim";
 import { ExperienceTable } from "@/components/about/ExperienceTable";
 import { Figure } from "@/components/Figure";
 import { StackTable } from "@/components/about/StackTable";
+import { certifications, interests, languages } from "@/data/credentials";
 import { experience } from "@/data/experience";
 import { siteConfig } from "@/data/site";
 import { skills } from "@/data/skills";
@@ -127,32 +128,36 @@ export default function AboutPage() {
 
           <div className="col-span-4 mt-12 md:col-span-6 md:col-start-7 md:mt-0">
             <SplitLines as="p" className="t-lead text-ink" onScroll>
-              I build web products end to end — interface, API, and the pipeline
-              that ships them.
+              I build enterprise applications end to end — the data model, the
+              API, and the interface people actually work in.
             </SplitLines>
 
             <div className="mt-8 space-y-5 md:mt-10">
               <p className="t-body">
-                Since 2023 I&rsquo;ve led customer-facing development at
-                Birdman. The work I&rsquo;m most useful at is the unglamorous
-                kind: production deploys went from 25 minutes to under 4 on a
-                containerized GitHub Actions pipeline, and moving the marketing
-                stack to the Next.js App Router took Lighthouse performance from
-                68 to 98.
+                Fintech is where I learned the trade. At Expanded Payment
+                International I was the R&amp;D engineer on the management
+                console behind a platform serving 5,000+ professional clients —
+                refactoring the JavaScript layer and tightening DOM handling
+                brought load times down 30%, and I integrated and tested secure
+                transaction APIs alongside the backend team. Payment software
+                teaches you quickly that careless is expensive.
               </p>
               <p className="t-body">
-                Before that I freelanced for two years and shipped 12+
-                production apps across e-commerce, SaaS, and content — enough
-                repetition to standardize a Next.js and Tailwind starter that
-                halved kickoff time. A computer science degree, 2017 to 2021,
-                sits under all of it.
+                Before that, an operational internship at ARK-X Talent Factory
+                where I built an e-commerce platform end to end: Node and
+                Express REST APIs with MongoDB index optimisation that cut
+                response times 60%, a React and Redux storefront on top, and JWT
+                authentication with Bcrypt hashing and role-based access
+                control. A physics degree from Ain Chock sits under all of it.
               </p>
               <p className="t-body">
-                Now I mentor three engineers and keep the team on trunk-based
-                development with automated quality gates. Technically I care
-                about correctness you can test, budgets you can enforce in CI,
-                and interfaces that still work from the keyboard. TypeScript
-                strict, everywhere.
+                Now I consult on the factoring platform at Bank of Africa, where
+                the work is Python and PL/SQL automation against real SLAs — and
+                I spend the rest of my time bridging conventional development to
+                AI: Gemini and OpenAI behind real endpoints, RAG architecture
+                for retrieval worth trusting, and n8n agent workflows. Java and
+                Spring Boot on one side, MERN on the other, TypeScript strict
+                throughout.
               </p>
             </div>
           </div>
@@ -196,8 +201,8 @@ export default function AboutPage() {
             reading as a snapshot. */}
         <div className="grid-12 mt-[clamp(3rem,6vw,5rem)] items-end gap-y-12">
           <p className="t-lead col-span-4 md:col-span-6">
-            Three engineers mentored, and a team moved onto trunk-based
-            development with automated quality gates.
+            Load times down 30%, API responses down 60%. The recurring theme is
+            leaving a system faster than I found it.
           </p>
 
           <Figure
@@ -230,12 +235,79 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --------------------------------------------------- (04) COLOPHON */}
+      {/* ------------------------------------------------ (04) CREDENTIALS */}
+      <section aria-labelledby="credentials-folio" className="section shell">
+        <div className="grid-12 gap-y-3">
+          <Folio
+            id="credentials-folio"
+            n="04"
+            label="Credentials"
+            className="col-span-4 md:col-span-6"
+          />
+          <p className="t-meta col-span-4 md:col-span-6 md:text-right">
+            {languages.length} languages / {certifications.length} programmes
+          </p>
+        </div>
+
+        <div className="grid-12 mt-[clamp(2.5rem,5vw,4rem)] gap-y-12">
+          <div className="col-span-4 md:col-span-3">
+            <h3 className="t-meta">Languages</h3>
+            <ul className="mt-5 border-t border-rule">
+              {languages.map((language) => (
+                <li
+                  key={language.name}
+                  className="flex items-baseline justify-between gap-4 border-b border-rule py-3.5"
+                >
+                  <span className="font-mono text-[0.9375rem] text-ink">
+                    {language.name}
+                  </span>
+                  <span className="t-meta text-right">{language.level}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-4 md:col-span-5 md:col-start-5">
+            <h3 className="t-meta">Certifications</h3>
+            <ul className="mt-5 border-t border-rule">
+              {certifications.map((certification) => (
+                <li
+                  key={certification.title}
+                  className="border-b border-rule py-3.5"
+                >
+                  <p className="font-mono text-[0.9375rem] leading-snug text-ink">
+                    {certification.title}
+                  </p>
+                  <p className="t-meta mt-2">
+                    {certification.issuer} — {certification.year}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-4 md:col-span-3 md:col-start-10">
+            <h3 className="t-meta">Off the clock</h3>
+            <ul className="mt-5 border-t border-rule">
+              {interests.map((interest) => (
+                <li
+                  key={interest}
+                  className="border-b border-rule py-3.5 font-mono text-[0.9375rem] text-ink"
+                >
+                  {interest}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* --------------------------------------------------- (05) COLOPHON */}
       <section aria-labelledby="colophon-folio" className="section shell">
         <div className="grid-12">
           <Folio
             id="colophon-folio"
-            n="04"
+            n="05"
             label="Colophon"
             className="col-span-4 md:col-span-3"
           />

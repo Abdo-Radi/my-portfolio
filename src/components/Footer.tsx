@@ -9,10 +9,7 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 
-const ELSEWHERE = [
-  { label: "GitHub", href: siteConfig.socials.github },
-  { label: "LinkedIn", href: siteConfig.socials.linkedin },
-];
+const ELSEWHERE = [{ label: "LinkedIn", href: siteConfig.socials.linkedin }];
 
 /**
  * Server component on purpose: the year is stamped on the server, so there is

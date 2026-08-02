@@ -10,34 +10,40 @@ export type Project = {
   featured?: boolean;
 };
 
+/**
+ * Work, drawn from the roles in `src/data/experience.ts`. Client engagements
+ * carry no public URL — every figure quoted here is one the CV already makes.
+ */
 export const projects: Project[] = [
   {
-    slug: "devops-portfolio",
-    title: "DevOps Portfolio",
+    slug: "payment-management-console",
+    title: "Payment Management Console",
     description:
-      "This very site — Next.js 16 App Router, Tailwind v4, shadcn/ui, containerized with Docker and shipped through a GitHub Actions CI/CD pipeline to Vercel.",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Docker", "GitHub Actions"],
-    liveUrl: "https://example.com",
-    sourceUrl: "https://github.com/yourusername/my-portfolio",
+      "The management interface of a payment platform used by more than 5,000 professional clients. Refactoring the JavaScript layer and tightening DOM handling cut load times by 30%, and secure transaction APIs were integrated and tested directly with the backend team.",
+    tags: ["JavaScript", "jQuery", "Bootstrap", "REST APIs", "SVN"],
     featured: true,
   },
   {
-    slug: "task-api",
-    title: "Task Management API",
+    slug: "art-gallery-commerce",
+    title: "Art Gallery Commerce",
     description:
-      "REST API with JWT auth, role-based access control, and a fully typed Prisma data layer. 95% test coverage with CI-gated deploys.",
-    tags: ["Node.js", "PostgreSQL", "Prisma", "Vitest"],
-    sourceUrl: "https://github.com/yourusername/task-api",
+      "A MERN e-commerce platform built end to end. RESTful Node and Express APIs with MongoDB index optimisation cut response times by 60%; the React storefront uses Redux for global state, behind JWT authentication with Bcrypt hashing and role-based access control.",
+    tags: ["React", "Redux", "Node.js", "Express", "MongoDB", "JWT"],
     featured: true,
   },
   {
-    slug: "realtime-chat",
-    title: "Realtime Chat",
+    slug: "factoring-flow-automation",
+    title: "Factoring Flow Automation",
     description:
-      "WebSocket-based chat with presence, typing indicators, and optimistic UI. Scales horizontally behind a Redis pub/sub backplane.",
-    tags: ["React", "WebSocket", "Redis"],
-    liveUrl: "https://example.com",
-    sourceUrl: "https://github.com/yourusername/realtime-chat",
+      "Automation of factoring data flows for a banking client. Python and Batch scripts replaced manual handling, PL/SQL queries drive incident diagnosis against SLAs, and the data-transfer interfaces between systems are maintained alongside the servers they run on.",
+    tags: ["Python", "PL/SQL", "Batch", "Windows Server"],
     featured: true,
+  },
+  {
+    slug: "presswork-portfolio",
+    title: "Presswork Portfolio",
+    description:
+      "This site. Next.js 16 App Router and Tailwind v4 on a twelve-column editorial grid, with GSAP driving the scroll and text choreography. TypeScript strict throughout, tested with Vitest, containerised and shipped through GitHub Actions.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "GSAP", "Vitest"],
   },
 ];

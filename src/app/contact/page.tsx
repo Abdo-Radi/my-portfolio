@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { siteConfig } from "@/data/site";
+import { phoneHref, siteConfig } from "@/data/site";
 import { RuleDraw, SplitLines } from "@/components/anim";
 import { ContactForm } from "@/components/ContactForm";
 import { CopyEmailButton } from "@/components/CopyEmailButton";
@@ -11,10 +11,7 @@ export const metadata: Metadata = {
   description: `Contact ${siteConfig.name} — ${siteConfig.role}. Email, socials and a short form. Based in ${siteConfig.location}.`,
 };
 
-const ELSEWHERE = [
-  { label: "GitHub", href: siteConfig.socials.github },
-  { label: "LinkedIn", href: siteConfig.socials.linkedin },
-];
+const ELSEWHERE = [{ label: "LinkedIn", href: siteConfig.socials.linkedin }];
 
 /** One meta row: label above value, closed by a hairline. */
 function Row({
@@ -79,6 +76,15 @@ export default function ContactPage() {
                   </EmailLink>
                   <CopyEmailButton value={siteConfig.email} />
                 </div>
+              </Row>
+
+              <Row label="Phone">
+                <a
+                  href={phoneHref}
+                  className="link-draw font-mono text-[0.9375rem] tracking-[-0.01em] text-ink"
+                >
+                  {siteConfig.phone}
+                </a>
               </Row>
 
               <Row label="Based in">

@@ -1,14 +1,32 @@
 export type ExperienceItem = {
   role: string;
   organization: string;
-  /** Human-readable period, e.g. "2023 — Present". */
+  /** Human-readable period, e.g. "2024 — 2025". */
   period: string;
   description: string;
   highlights: string[];
   kind: "work" | "education";
 };
 
+/**
+ * Roles and education, reverse chronological. Taken from the CV in
+ * `public/resume.pdf` — every figure quoted elsewhere on the site should be
+ * traceable back to a highlight here.
+ */
 export const experience: ExperienceItem[] = [
+  {
+    role: "Application Support & Automation Consultant",
+    organization: "Bank of Africa (via Procheck)",
+    period: "Feb 2026 — Present",
+    kind: "work",
+    description:
+      "External contractor on the factoring platform — keeping the business tools running and automating the data flows around them.",
+    highlights: [
+      "Automate factoring data flows with Python and Batch scripting, replacing manual handling.",
+      "Diagnose and resolve production incidents against SLAs, querying PL/SQL directly.",
+      "Maintain servers, network cabling, and the data-transfer interfaces between systems.",
+    ],
+  },
   {
     role: "Senior Full-Stack Developer",
     organization: "Birdman",
@@ -23,27 +41,55 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "Full-Stack Developer",
-    organization: "Freelance",
-    period: "2021 — 2023",
+    role: "R&D Engineer",
+    organization: "Expanded Payment International (XPI)",
+    period: "2024 — 2025",
     kind: "work",
     description:
-      "Delivered end-to-end web applications for startups and small businesses.",
+      "Permanent contract on a payment platform used by more than 5,000 professional clients.",
     highlights: [
-      "Shipped 12+ production apps across e-commerce, SaaS, and content domains.",
-      "Standardized a reusable Next.js + Tailwind starter that halved project kickoff time.",
+      "Cut load times on the management interface by 30% through JavaScript refactoring and tighter DOM handling.",
+      "Integrated and tested secure transaction APIs in direct collaboration with the backend team.",
+      "Maintained a high-availability codebase under SVN, shipping evolutionary changes without downtime.",
     ],
   },
   {
-    role: "B.Sc. Computer Science",
-    organization: "University",
-    period: "2017 — 2021",
+    role: "Full-Stack MERN Developer — Operational Internship",
+    organization: "ARK-X Talent Factory",
+    period: "Jan — Jun 2024",
+    kind: "work",
+    description:
+      "Built an e-commerce platform end to end, from the data model to the storefront.",
+    highlights: [
+      "Designed and deployed RESTful APIs on Node.js and Express, cutting response times 60% with MongoDB index optimisation.",
+      "Built an art-gallery storefront in React with Redux for global state.",
+      "Implemented JWT authentication with Bcrypt hashing and role-based access control.",
+    ],
+  },
+  {
+    role: "Full-Stack MERN Developer — Qualification Certification",
+    organization: "JobInTech",
+    period: "Jan — Jun 2024",
     kind: "education",
     description:
-      "Focus on software engineering, distributed systems, and algorithms.",
-    highlights: [
-      "Graduated with honors.",
-      "Led the student developer society.",
-    ],
+      "Intensive qualification programme covering the MERN stack end to end.",
+    highlights: ["Certified Full-Stack MERN Developer."],
+  },
+  {
+    role: "B.Sc. Physical Matter Sciences — Energy",
+    organization: "Ain Chock Faculty of Sciences",
+    period: "2020 — 2023",
+    kind: "education",
+    description:
+      "Physics degree with an energy specialisation — the analytical grounding under the engineering work.",
+    highlights: [],
+  },
+  {
+    role: "International Baccalaureate — Physical Sciences, French option",
+    organization: "Lycée Taha Houssein",
+    period: "2019 — 2020",
+    kind: "education",
+    description: "French-track scientific baccalaureate.",
+    highlights: [],
   },
 ];

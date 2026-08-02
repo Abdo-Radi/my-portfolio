@@ -12,21 +12,21 @@ import { cn } from "@/lib/utils";
 const blocks = [
   {
     folio: "(A)",
-    title: "Product",
+    title: "Fintech",
     offset: "",
-    body: "I lead customer-facing web products at Birdman, from data model to interface. Before that, 12 production apps as a freelancer across e-commerce, SaaS, and content, built on a reusable Next.js and Tailwind starter that halved project kickoff.",
+    body: "Payment software is where I learned to be careful. At XPI I owned the management console behind a platform serving 5,000+ professional clients, cutting load times 30% through JavaScript refactoring and tighter DOM handling, and integrating secure transaction APIs alongside the backend team.",
   },
   {
     folio: "(B)",
-    title: "Platform",
+    title: "AI & Automation",
     offset: "md:mt-[clamp(2rem,5vw,4.5rem)]",
-    body: "I own the pipeline the work ships through. A containerized GitHub Actions build took production deploys from 25 min to under 4 min. Trunk-based development with automated quality gates keeps main releasable, and 3 engineers now work the same way.",
+    body: "I put language models to work in software that already exists: Gemini and OpenAI APIs behind real endpoints, LangChain and RAG for retrieval that returns context instead of a confident guess, and n8n agent workflows that remove the steps nobody should repeat by hand.",
   },
   {
     folio: "(C)",
-    title: "Performance",
+    title: "Backend",
     offset: "md:mt-[clamp(4rem,10vw,9rem)]",
-    body: "Performance is a budget, not a final pass. Moving the marketing stack to the Next.js App Router took Lighthouse from 68 to 98 — measured, not estimated. Accessibility and bundle size sit inside the same budget.",
+    body: "Java and Spring Boot on one side, Node and Express on the other. MongoDB index optimisation took API response times down 60%, and authentication is JWT with Bcrypt hashing and role-based access control — built in, not bolted on.",
   },
 ] as const;
 

@@ -33,8 +33,6 @@ function workingYears(): string {
 }
 
 export function Hero() {
-  const current = experience[0];
-
   return (
     <section className="shell flex min-h-[100svh] flex-col justify-between pt-[clamp(7rem,14vh,10rem)] pb-10">
       <Reveal
@@ -54,7 +52,7 @@ export function Hero() {
         <SplitLines as="h1" delay={0.18} className="t-display optical-left">
           FULL–STACK
           <br />
-          ENGINEER
+          DEVELOPER
         </SplitLines>
 
         <div className="grid-12">
@@ -84,9 +82,7 @@ export function Hero() {
           </p>
 
           <p className="t-meta col-span-2 leading-[1.7] md:col-span-3">
-            {current
-              ? `${current.role} — ${current.organization}`
-              : siteConfig.role}
+            {siteConfig.specialism}
           </p>
 
           <p className="t-meta col-span-2 md:col-span-3">
