@@ -17,7 +17,6 @@ export const projects: Project[] = [
     description:
       "This very site — Next.js 16 App Router, Tailwind v4, shadcn/ui, containerized with Docker and shipped through a GitHub Actions CI/CD pipeline to Vercel.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Docker", "GitHub Actions"],
-    image: "/projects/portfolio.svg",
     liveUrl: "https://example.com",
     sourceUrl: "https://github.com/yourusername/my-portfolio",
     featured: true,
@@ -28,7 +27,6 @@ export const projects: Project[] = [
     description:
       "REST API with JWT auth, role-based access control, and a fully typed Prisma data layer. 95% test coverage with CI-gated deploys.",
     tags: ["Node.js", "PostgreSQL", "Prisma", "Vitest"],
-    image: "/projects/task-api.svg",
     sourceUrl: "https://github.com/yourusername/task-api",
     featured: true,
   },
@@ -38,7 +36,6 @@ export const projects: Project[] = [
     description:
       "WebSocket-based chat with presence, typing indicators, and optimistic UI. Scales horizontally behind a Redis pub/sub backplane.",
     tags: ["React", "WebSocket", "Redis"],
-    image: "/projects/chat.svg",
     liveUrl: "https://example.com",
     sourceUrl: "https://github.com/yourusername/realtime-chat",
     featured: true,

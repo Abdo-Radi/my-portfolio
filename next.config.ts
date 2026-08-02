@@ -41,6 +41,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Hide the on-screen Next.js dev indicator (the "N" badge). Compile and
+  // runtime errors are still surfaced.
+  devIndicators: false,
+
   // Produce a minimal, self-contained server build for the Docker image.
   // See node_modules/next/dist/docs/01-app/01-getting-started/17-deploying.md
   output: "standalone",

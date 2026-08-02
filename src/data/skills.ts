@@ -5,19 +5,58 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
-    category: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL", "Go"],
+    category: "Backend & AI Orchestration",
+    items: [
+      "Java (Spring Boot / Security)",
+      "Python (FastAPI, Flask, scripting)",
+      "Node.js (Express.js)",
+      "Gemini & OpenAI API integration",
+      "LangChain",
+      "RESTful APIs",
+    ],
   },
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Redux"],
+    category: "Frontend & AI Interfaces",
+    items: [
+      "Angular",
+      "React",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Vercel AI SDK",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "Prisma", "PostgreSQL", "REST", "GraphQL"],
+    category: "Databases",
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+      "PL/SQL",
+      "Vector databases (RAG)",
+    ],
   },
   {
-    category: "DevOps & Tooling",
-    items: ["Docker", "GitHub Actions", "Vercel", "Vitest", "Linux"],
+    category: "Automation & DevOps",
+    items: [
+      "Python automation scripts",
+      "n8n (AI agent workflows)",
+      "Docker",
+      "Git",
+      "CI/CD pipelines",
+    ],
+  },
+  {
+    category: "Methodologies",
+    items: [
+      "Agile (Scrum)",
+      "System architecture",
+      "IT support optimisation",
+      "Prompt engineering",
+      "RAG architecture",
+    ],
   },
 ];

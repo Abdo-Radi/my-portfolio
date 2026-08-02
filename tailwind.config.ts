@@ -4,24 +4,37 @@ import type { Config } from "tailwindcss";
  * Tailwind v4 is CSS-first, so this file only takes effect because
  * `src/app/globals.css` references it with `@config "../../tailwind.config.ts"`.
  *
- * The color system is driven entirely by CSS custom properties declared in
- * `:root` (light) and `.dark` (dark) inside globals.css, so every color below
- * automatically swaps with the theme. Dark mode is toggled by the `.dark`
- * class (set by next-themes).
+ * Every colour is a CSS custom property declared in `:root` (paper) and `.dark`
+ * (press) inside globals.css, so the whole palette swaps with the theme. The
+ * `background`/`foreground`/`primary`… aliases exist so the shadcn `ui/*`
+ * components keep working against the PRESSWORK tokens.
  */
 export default {
   darkMode: "class",
   content: ["./src/**/*.{ts,tsx,mdx}"],
   theme: {
-    container: {
-      center: true,
-      padding: "1rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
+        /* PRESSWORK tokens — prefer these in new code. */
+        paper: {
+          DEFAULT: "var(--paper)",
+          2: "var(--paper-2)",
+        },
+        ink: {
+          DEFAULT: "var(--ink)",
+          2: "var(--ink-2)",
+          3: "var(--ink-3)",
+        },
+        rule: {
+          DEFAULT: "var(--rule)",
+          strong: "var(--rule-strong)",
+        },
+        signal: {
+          DEFAULT: "var(--signal)",
+          ink: "var(--signal-ink)",
+        },
+
+        /* shadcn/ui aliases. */
         background: "var(--background)",
         foreground: "var(--foreground)",
         border: "var(--border)",
@@ -56,29 +69,21 @@ export default {
           foreground: "var(--destructive-foreground)",
         },
       },
+      /* Square by default — this design has no rounding and no elevation. */
       borderRadius: {
-        xl: "calc(var(--radius) + 4px)",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        none: "0px",
+        sm: "0px",
+        DEFAULT: "0px",
+        md: "0px",
+        lg: "0px",
+        xl: "0px",
+        "2xl": "0px",
+        "3xl": "0px",
+        full: "9999px",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
-      },
-      keyframes: {
-        "fade-in": {
-          from: { opacity: "0", transform: "translateY(8px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
-      },
-      animation: {
-        "fade-in": "fade-in 0.5s ease-out both",
-        caret: "blink 1s step-end infinite",
       },
     },
   },

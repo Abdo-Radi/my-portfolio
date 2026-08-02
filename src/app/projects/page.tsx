@@ -1,27 +1,55 @@
 import type { Metadata } from "next";
 
-import { ProjectGrid } from "@/components/ProjectGrid";
+import { RuleDraw, SplitLines } from "@/components/anim";
+import { ProjectArchive } from "@/components/work/ProjectArchive";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Work",
   description:
-    "A selection of projects I've designed, built, and shipped — filterable by technology.",
+    "Archive of shipped projects — the stack, the source and the deployment path for each one.",
 };
 
 export default function ProjectsPage() {
+  const total = projects.length;
+  const live = projects.filter((project) => project.liveUrl).length;
+
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
-      <header className="mb-10 space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Projects
-        </h1>
-        <p className="max-w-2xl text-muted-foreground">
-          A selection of things I&apos;ve built. Filter by technology to find
-          what you&apos;re interested in.
-        </p>
+    <>
+      <header className="shell pt-[clamp(7rem,14vh,10rem)] pb-[clamp(2.5rem,6vw,4rem)]">
+        <div className="flex items-baseline justify-between gap-6">
+          <span className="t-meta">(01) Archive</span>
+          <span className="t-meta">
+            {String(total).padStart(2, "0")} entries
+          </span>
+        </div>
+
+        <SplitLines
+          as="h1"
+          className="t-display mt-[clamp(1.25rem,4vw,2.5rem)] optical-left"
+        >
+          Work
+        </SplitLines>
+
+        <div className="grid-12 mt-[clamp(2rem,5vw,3rem)]">
+          <p className="t-meta col-span-4 md:col-span-3 md:col-start-1">
+            Selected work, 2021—2026
+          </p>
+          <p className="t-lead col-span-4 mt-6 md:col-span-5 md:col-start-8 md:mt-0">
+            <span className="font-mono tabular-nums">{total}</span> projects,{" "}
+            <span className="font-mono tabular-nums">{live}</span> of them live
+            — filter by stack below.
+          </p>
+        </div>
+
+        <RuleDraw
+          immediate
+          delay={0.4}
+          className="mt-[clamp(2.5rem,6vw,4rem)]"
+        />
       </header>
 
-      <ProjectGrid />
-    </div>
+      <ProjectArchive projects={projects} />
+    </>
   );
 }

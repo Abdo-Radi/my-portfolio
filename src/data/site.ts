@@ -14,13 +14,12 @@ export const siteConfig = {
   // Used for absolute URLs (sitemap, OG, canonical). Set via the validated
   // NEXT_PUBLIC_SITE_URL environment variable (see src/lib/env.ts).
   url: clientEnv.NEXT_PUBLIC_SITE_URL,
-  email: "abdellah.radi@birdman.ma",
+  email: "abdellahradi30@gmail.com",
   location: "Morocco",
   resumeUrl: "/resume.pdf",
   socials: {
     github: "https://github.com/yourusername",
     linkedin: "https://www.linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
   },
 } as const;
 
