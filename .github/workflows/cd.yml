@@ -91,7 +91,7 @@ jobs:
       statuses: write
     steps:
       - name: Set commit deployment status
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           DEPLOY_URL: ${{ needs.deploy.outputs.url }}
         with:
