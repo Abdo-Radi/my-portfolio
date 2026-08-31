@@ -33,11 +33,12 @@ export const experience: ExperienceItem[] = [
     period: "2023 — Present",
     kind: "work",
     description:
-      "Lead development of customer-facing web products and the CI/CD platform behind them.",
+      "Lead developer on Yaluoza — a French marketplace for selling luxury property directly, without an agency.",
     highlights: [
-      "Cut production deploy time from 25 min to under 4 min with a containerized GitHub Actions pipeline.",
-      "Migrated the marketing stack to Next.js App Router, improving Lighthouse performance from 68 to 98.",
-      "Mentored 3 engineers and introduced trunk-based development with automated quality gates.",
+      "Lead developer on Yaluoza, a French luxury-property marketplace — Next.js 16, Express and PostgreSQL, containerised end to end.",
+      "Loaded 190,000 official sale records into PostGIS, pricing property street by street and serving map search as one indexed query.",
+      "Cut the API into 22 route-service-data modules and hardened 90+ endpoints with Zod validation, argon2 hashing and JWT sessions.",
+      "Wired AI into the listing pipeline for generated copy and photo enhancement, then took the product to iOS and Android with React Native, Expo and EAS.",
     ],
   },
   {
