@@ -30,6 +30,10 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
+    category: "Mobile",
+    items: ["React Native", "Expo", "EAS (Build / Submit / Update)"],
+  },
+  {
     category: "Databases",
     items: [
       "MongoDB",

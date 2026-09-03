@@ -47,10 +47,11 @@ export function Profile() {
             </p>
             <p className="t-body">
               I build enterprise applications with Java, Spring Boot and the
-              MERN stack, and I&rsquo;m now spending most of my time bridging
-              that to AI: Gemini and OpenAI behind real endpoints, RAG for
-              retrieval that returns context instead of a confident guess, and
-              n8n workflows that remove the steps nobody should repeat by hand.
+              MERN stack, and take them to iOS and Android with React Native,
+              Expo and EAS. Most of my time now goes to bridging that to AI:
+              Gemini and OpenAI behind real endpoints, RAG for retrieval that
+              returns context instead of a confident guess, and n8n workflows
+              that remove the steps nobody should repeat by hand.
             </p>
           </Reveal>
 
@@ -69,7 +70,7 @@ export function Profile() {
             <div className="col-span-2 md:col-span-4">
               <p className="t-meta">FOCUS</p>
               <p className="t-meta mt-2.5 text-ink-2">
-                AI-INTEGRATED WEB PRODUCTS
+                AI-INTEGRATED WEB &amp; MOBILE
               </p>
             </div>
           </div>

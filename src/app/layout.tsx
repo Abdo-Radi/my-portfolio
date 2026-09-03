@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     "full-stack",
     "Next.js",
     "TypeScript",
+    "React Native",
+    "Expo",
     siteConfig.name,
   ],
   authors: [{ name: siteConfig.name }],

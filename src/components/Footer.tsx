@@ -75,12 +75,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="t-meta mt-[clamp(3rem,7vw,5.5rem)] border-t border-rule pt-6 leading-[1.7]">
-          Designed and built by {siteConfig.name}. Next.js 16, Tailwind v4 and
-          GSAP. Typeset in Archivo and IBM Plex Mono.
-        </p>
-
-        <div className="mt-5 flex flex-col gap-2 border-t border-rule pt-5 sm:flex-row sm:items-baseline sm:justify-between">
+        <div className="mt-[clamp(3rem,7vw,5.5rem)] flex flex-col gap-2 border-t border-rule pt-5 sm:flex-row sm:items-baseline sm:justify-between">
           <p className="t-meta">
             © {year} {siteConfig.name}
           </p>
@@ -90,19 +85,48 @@ export function Footer() {
         </div>
       </div>
 
-      {/* The closing signature: full-bleed, cropped by the bottom of the page. */}
-      <div
-        aria-hidden="true"
-        className="shell mt-[clamp(2rem,4vw,3.5rem)] overflow-hidden"
-      >
+      {/* The closing signature: full-bleed, set on the bottom edge. */}
+      <div aria-hidden="true" className="mt-[clamp(2rem,4vw,3.5rem)]">
         {/*
-          `leading-none` keeps the cap-tops safely inside the clipping box; the
-          -0.3em bottom margin is what pulls the crop line up through the
-          letterforms so roughly a fifth of them bleeds off the page.
+          Set in SVG rather than CSS text so the fit is exact instead of
+          estimated. `textLength` pins the rendered advance to the full 1000-unit
+          viewBox, so the wordmark spans the viewport edge to edge whatever the
+          real glyph widths turn out to be — no vw constant to tune, no headroom
+          to leave, and nothing shears when the estimate is off.
+
+          font-size 119 is 1000 / ~8.4em, the measure of thirteen uppercase
+          Archivo glyphs at stretch 106% after the -0.045em tracking. That puts
+          the natural width within a percent or so of 1000, so `spacingAndGlyphs`
+          has almost nothing to correct — an error here costs a fraction of a
+          percent of glyph width, never a clipped letter.
+
+          Vertically: Archivo's ascent is 0.8896em and its caps run ~0.73em, so
+          at this size the baseline sits at 90 and the cap tops land near 3. A
+          93-unit box therefore holds the mark with ~3 units of air above and
+          below — tight to both edges without touching a letterform.
         */}
-        <p className="t-display -mb-[0.3em] optical-left w-full text-[clamp(2.4rem,11vw,12.5rem)] leading-none whitespace-nowrap text-ink select-none">
-          {siteConfig.name}
-        </p>
+        <svg
+          viewBox="0 0 1000 93"
+          className="block h-auto w-full text-ink select-none"
+        >
+          <text
+            x="0"
+            y="90"
+            textLength="1000"
+            lengthAdjust="spacingAndGlyphs"
+            fill="currentColor"
+            style={{
+              fontFamily:
+                "var(--font-sans), ui-sans-serif, system-ui, sans-serif",
+              fontSize: 119,
+              fontWeight: 800,
+              fontStretch: "106%",
+              letterSpacing: "-0.045em",
+            }}
+          >
+            {siteConfig.name.toUpperCase()}
+          </text>
+        </svg>
       </div>
     </footer>
   );

@@ -15,22 +15,9 @@ export type ExperienceItem = {
  */
 export const experience: ExperienceItem[] = [
   {
-    role: "Application Support & Automation Consultant",
-    organization: "Bank of Africa (via Procheck)",
-    period: "Feb 2026 — Present",
-    kind: "work",
-    description:
-      "External contractor on the factoring platform — keeping the business tools running and automating the data flows around them.",
-    highlights: [
-      "Automate factoring data flows with Python and Batch scripting, replacing manual handling.",
-      "Diagnose and resolve production incidents against SLAs, querying PL/SQL directly.",
-      "Maintain servers, network cabling, and the data-transfer interfaces between systems.",
-    ],
-  },
-  {
     role: "Senior Full-Stack Developer",
     organization: "Birdman",
-    period: "2023 — Present",
+    period: "May 2026 — Present",
     kind: "work",
     description:
       "Lead developer on Yaluoza — a French marketplace for selling luxury property directly, without an agency.",
@@ -39,6 +26,19 @@ export const experience: ExperienceItem[] = [
       "Loaded 190,000 official sale records into PostGIS, pricing property street by street and serving map search as one indexed query.",
       "Cut the API into 22 route-service-data modules and hardened 90+ endpoints with Zod validation, argon2 hashing and JWT sessions.",
       "Wired AI into the listing pipeline for generated copy and photo enhancement, then took the product to iOS and Android with React Native, Expo and EAS.",
+    ],
+  },
+  {
+    role: "Application Support & Automation Consultant",
+    organization: "Bank of Africa (via Procheck)",
+    period: "Feb — Avr 2026",
+    kind: "work",
+    description:
+      "External contractor on the factoring platform — keeping the business tools running and automating the data flows around them.",
+    highlights: [
+      "Automate factoring data flows with Python and Batch scripting, replacing manual handling.",
+      "Diagnose and resolve production incidents against SLAs, querying PL/SQL directly.",
+      "Maintain servers, network cabling, and the data-transfer interfaces between systems.",
     ],
   },
   {

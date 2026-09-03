@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# staging folder for certificate PDFs; the served copies live in public/certificates
+/certifications

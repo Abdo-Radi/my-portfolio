@@ -176,7 +176,7 @@
   /* Section rhythm: hairline above, generous air inside. */
   .section {
     border-top: 1px solid var(--rule);
-    padding-block: clamp(4.5rem, 10vw, 9rem);
+    padding-block: clamp(3.5rem, 8vw, 7rem);
   }
 
   /* ------------------------------------------------------------------

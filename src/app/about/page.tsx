@@ -5,7 +5,14 @@ import { Counter, Magnetic, RuleDraw, SplitLines } from "@/components/anim";
 import { ExperienceTable } from "@/components/about/ExperienceTable";
 import { Figure } from "@/components/Figure";
 import { StackTable } from "@/components/about/StackTable";
-import { certifications, interests, languages } from "@/data/credentials";
+import {
+  certificateCount,
+  certifications,
+  interests,
+  languages,
+  type CertificateProof,
+  type Certification,
+} from "@/data/credentials";
 import { experience } from "@/data/experience";
 import { siteConfig } from "@/data/site";
 import { skills } from "@/data/skills";
@@ -46,6 +53,24 @@ const stackCount = skills.reduce(
 
 const [firstName = siteConfig.name, ...restOfName] = siteConfig.name.split(" ");
 const lastName = restOfName.join(" ");
+
+/**
+ * Accessible name for a certificate link.
+ *
+ * A bundled entry (the Codecademy path) names the individual course, so the
+ * label alone is meaningful. A single-certificate entry has the generic label
+ * "Certificate", so it borrows the entry title instead — otherwise a screen
+ * reader announces "Certificate certificate". The issuer, not the long title,
+ * carries the context in both cases.
+ */
+function proofAria(
+  certification: Certification,
+  proof: CertificateProof,
+): string {
+  const subject =
+    (certification.proofs?.length ?? 0) > 1 ? proof.label : certification.title;
+  return `Open the ${subject} certificate from ${certification.issuer} (PDF)`;
+}
 
 /** Section folio: the number in ink, the editorial label in metadata grey. */
 function Folio({
@@ -113,7 +138,7 @@ export default function AboutPage() {
           className="mt-[clamp(1.75rem,4vw,3rem)]"
         />
 
-        <div className="grid-12 mt-[clamp(2.5rem,6vw,4.5rem)] pb-[clamp(4.5rem,10vw,9rem)]">
+        <div className="grid-12 mt-[clamp(2.5rem,6vw,4.5rem)] pb-[clamp(3.5rem,8vw,7rem)]">
           <div className="col-span-4 md:col-span-5">
             <Figure
               src="/photos/portrait.jpg"
@@ -129,7 +154,8 @@ export default function AboutPage() {
           <div className="col-span-4 mt-12 md:col-span-6 md:col-start-7 md:mt-0">
             <SplitLines as="p" className="t-lead text-ink" onScroll>
               I build enterprise applications end to end — the data model, the
-              API, and the interface people actually work in.
+              API, and the interface people actually work in, on the web and on
+              a phone.
             </SplitLines>
 
             <div className="mt-8 space-y-5 md:mt-10">
@@ -156,7 +182,8 @@ export default function AboutPage() {
                 I spend the rest of my time bridging conventional development to
                 AI: Gemini and OpenAI behind real endpoints, RAG architecture
                 for retrieval worth trusting, and n8n agent workflows. Java and
-                Spring Boot on one side, MERN on the other, TypeScript strict
+                Spring Boot on one side, MERN on the other, React Native with
+                Expo and EAS when it has to ship to a phone, TypeScript strict
                 throughout.
               </p>
             </div>
@@ -200,10 +227,31 @@ export default function AboutPage() {
             documentary phone frame stops reading as a document and starts
             reading as a snapshot. */}
         <div className="grid-12 mt-[clamp(3rem,6vw,5rem)] items-end gap-y-12">
-          <p className="t-lead col-span-4 md:col-span-6">
-            Load times down 30%, API responses down 60%. The recurring theme is
-            leaving a system faster than I found it.
-          </p>
+          <div className="col-span-4 md:col-span-6">
+            <p className="t-lead">
+              Load times down 30%, API responses down 60%. The recurring theme
+              is leaving a system faster than I found it.
+            </p>
+
+            <div className="mt-7 space-y-5 md:mt-9">
+              <p className="t-body">
+                Neither number came from a rewrite. The XPI console got faster
+                because I went through the JavaScript layer and stopped the DOM
+                doing work nobody had asked for; the ARK-X API got faster
+                because the right MongoDB indexes turned collection scans into
+                lookups. Both wins were already sitting in the codebase — they
+                needed measuring, not rebuilding.
+              </p>
+              <p className="t-body">
+                On Yaluoza the same habit shows up as architecture rather than
+                optimisation: 190,000 property sales indexed in PostGIS, so a
+                radius search is one query instead of a second search engine to
+                run and keep in sync, and photo uploads that go straight from
+                the browser to storage, so the API never carries a file. The
+                cheapest millisecond is the one you designed out.
+              </p>
+            </div>
+          </div>
 
           <Figure
             src="/photos/speaking.jpg"
@@ -211,6 +259,7 @@ export default function AboutPage() {
             index="Fig. 02"
             caption={`Speaking — ${siteConfig.location}`}
             sizes="(min-width: 768px) 22vw, 55vw"
+            revealColor
             className="col-span-2 max-w-[14rem] md:col-span-3 md:col-start-10 md:max-w-none"
           />
         </div>
@@ -245,7 +294,8 @@ export default function AboutPage() {
             className="col-span-4 md:col-span-6"
           />
           <p className="t-meta col-span-4 md:col-span-6 md:text-right">
-            {languages.length} languages / {certifications.length} programmes
+            {languages.length} languages / {certifications.length} programmes /{" "}
+            {certificateCount} certificates
           </p>
         </div>
 
@@ -281,6 +331,25 @@ export default function AboutPage() {
                   <p className="t-meta mt-2">
                     {certification.issuer} — {certification.year}
                   </p>
+
+                  {certification.proofs ? (
+                    <ul className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-2">
+                      {certification.proofs?.map((proof) => (
+                        <li key={proof.href}>
+                          <a
+                            href={proof.href}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            aria-label={proofAria(certification, proof)}
+                            className="t-meta link-draw inline-flex items-baseline gap-1 border border-rule px-2 py-1 text-ink-2 transition-colors duration-200 hover:border-ink hover:text-ink"
+                          >
+                            <span>{proof.label}</span>
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </li>
               ))}
             </ul>

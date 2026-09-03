@@ -11,11 +11,11 @@ export const siteConfig = {
   name: "Abdellah Radi",
   role: "Full-Stack Developer",
   /** The long-form title, as it reads on the CV. */
-  specialism: "Java Spring · Angular · MERN · AI & Automation",
+  specialism: "Java Spring · Angular · MERN · React Native · AI & Automation",
   tagline:
-    "I build enterprise applications with Java, Spring Boot and the MERN stack — and wire AI into the workflows around them.",
+    "I build enterprise applications with Java, Spring Boot and the MERN stack, take them to iOS and Android with React Native — and wire AI into the workflows around them.",
   description:
-    "Portfolio of Abdellah Radi — full-stack developer in Casablanca. Fintech interfaces at scale, Java/Spring Boot and MERN applications, and AI integration with Gemini, OpenAI and n8n.",
+    "Portfolio of Abdellah Radi — full-stack developer in Casablanca. Fintech interfaces at scale, Java/Spring Boot and MERN applications, React Native mobile apps, and AI integration with Gemini, OpenAI and n8n.",
   // Used for absolute URLs (sitemap, OG, canonical). Set via the validated
   // NEXT_PUBLIC_SITE_URL environment variable (see src/lib/env.ts).
   url: clientEnv.NEXT_PUBLIC_SITE_URL,
