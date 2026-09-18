@@ -6,6 +6,8 @@ export type ExperienceItem = {
   description: string;
   highlights: string[];
   kind: "work" | "education";
+  /** Public links for the work done in this role — a live demo, its source. */
+  links?: { label: string; href: string }[];
 };
 
 /**
@@ -65,6 +67,13 @@ export const experience: ExperienceItem[] = [
       "Designed and deployed RESTful APIs on Node.js and Express, cutting response times 60% with MongoDB index optimisation.",
       "Built an art-gallery storefront in React with Redux for global state.",
       "Implemented JWT authentication with Bcrypt hashing and role-based access control.",
+    ],
+    links: [
+      { label: "Live demo", href: "https://horizons-gallery.vercel.app" },
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/Abdo-Radi/Art-Gallery-e-commerce",
+      },
     ],
   },
   {

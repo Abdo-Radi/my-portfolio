@@ -13,6 +13,7 @@ export type Project = {
 /**
  * Work, drawn from the roles in `src/data/experience.ts`. Client engagements
  * carry no public URL — every figure quoted here is one the CV already makes.
+ * Projects that are publicly deployed link their live demo and their source.
  */
 export const projects: Project[] = [
   {
@@ -27,8 +28,11 @@ export const projects: Project[] = [
     slug: "art-gallery-commerce",
     title: "Art Gallery Commerce",
     description:
-      "A MERN e-commerce platform built end to end. RESTful Node and Express APIs with MongoDB index optimisation cut response times by 60%; the React storefront uses Redux for global state, behind JWT authentication with Bcrypt hashing and role-based access control.",
+      "A MERN e-commerce platform built end to end. RESTful Node and Express APIs with MongoDB index optimisation cut response times by 60%; the React storefront uses Redux for global state, behind JWT authentication with Bcrypt hashing and role-based access control. Now live as Horizons: a storefront and an artist studio on one Express API, serverless on Vercel, with on-the-fly image resizing and a demo that resets itself every night.",
     tags: ["React", "Redux", "Node.js", "Express", "MongoDB", "JWT"],
+    image: "/projects/art-gallery-commerce.jpg",
+    liveUrl: "https://horizons-gallery.vercel.app",
+    sourceUrl: "https://github.com/Abdo-Radi/Art-Gallery-e-commerce",
     featured: true,
   },
   {

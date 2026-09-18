@@ -220,6 +220,35 @@ export function ExperienceTable({ items }: { items: ExperienceItem[] }) {
                     ))}
                   </ul>
                 </Mask>
+
+                {item.links && item.links.length > 0 ? (
+                  // Its own mask so the links lift in with the row. The padding
+                  // keeps the 4px focus ring (2px outline + 2px offset) inside
+                  // the mask's overflow box instead of clipped by it; pl-6 lines
+                  // the links up with the highlight text after its 24px dash.
+                  <Mask>
+                    <ul className="flex flex-wrap gap-x-6 gap-y-2 pt-4 pr-1 pb-1 pl-6">
+                      {item.links.map((link) => (
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="link-draw t-meta text-ink-2 transition-colors duration-200 hover:text-ink"
+                          >
+                            {link.label}{" "}
+                            <span
+                              aria-hidden="true"
+                              className="text-[0.875rem]"
+                            >
+                              ↗
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Mask>
+                ) : null}
               </td>
             </tr>
           ))}
