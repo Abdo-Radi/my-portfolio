@@ -17,7 +17,7 @@ COPY . .
 
 # NEXT_PUBLIC_* values are inlined at build time, so the real site URL must be
 # present during `next build` for correct canonical/OG/sitemap links:
-#   docker build --build-arg NEXT_PUBLIC_SITE_URL=https://yourdomain.com -t my-portfolio .
+#   docker build --build-arg NEXT_PUBLIC_SITE_URL=https://example.com -t my-portfolio .
 ARG NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
 ENV NEXT_TELEMETRY_DISABLED=1

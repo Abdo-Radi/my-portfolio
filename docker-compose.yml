@@ -4,7 +4,7 @@
 # NEXT_PUBLIC_SITE_URL is a NEXT_PUBLIC_* value, so it is inlined at BUILD time
 # and must be passed as a build arg (setting it only at runtime has no effect).
 # Override it from your shell or a .env file:
-#   NEXT_PUBLIC_SITE_URL=https://yourdomain.com docker compose up --build
+#   NEXT_PUBLIC_SITE_URL=https://example.com docker compose up --build
 #
 # Runtime-only secrets (RESEND_API_KEY, CONTACT_FROM_EMAIL) are loaded from an
 # optional .env file at run time. Empty values are treated as "not set"
