@@ -5,6 +5,8 @@
 **An editorial-brutalist developer portfolio — typeset like print, animated like film, shipped like production software.**
 Ink on paper · one accent colour · motion that degrades to nothing when you ask it to.
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-abdellah--radi.vercel.app-000?style=for-the-badge&logo=vercel&logoColor=white)](https://abdellah-radi.vercel.app)
+&nbsp;
 [![CI](https://github.com/Abdo-Radi/my-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdo-Radi/my-portfolio/actions/workflows/ci.yml)
 &nbsp;
 [![Tests](https://img.shields.io/badge/tests-40_passing-3C873A?style=for-the-badge)](#-quality-gates)
@@ -34,6 +36,8 @@ Ink on paper · one accent colour · motion that degrades to nothing when you as
 **Presswork** is my portfolio, built as a piece of production software rather than a landing page. It is set on a twelve-column editorial grid in two typefaces, driven by GSAP, and shipped through a gated CI/CD pipeline into a multi-stage Docker image.
 
 The design system has a name and a rule set: **ink on paper, two neutrals, four greys, one accent**. No gradients, no elevation, no rounded corners — `borderRadius` is overridden to `0px` for every key in the Tailwind config, so rounding is *structurally impossible* rather than merely discouraged. Everything themes through CSS custom properties, so the whole palette inverts between **Paper** and **Press** without a single duplicated style.
+
+> **See it live →** [abdellah-radi.vercel.app](https://abdellah-radi.vercel.app)
 
 The part I care most about is the motion. Nine GSAP primitives drive the entrances, the scroll and the micro-interactions — and every one of them sets its "from" state **in JavaScript, inside `gsap.matchMedia()`**. Turn JavaScript off, or ask for reduced motion, and every page still renders complete and readable. Nothing is hidden by CSS waiting for a script that may never arrive.
 
