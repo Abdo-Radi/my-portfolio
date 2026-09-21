@@ -56,18 +56,11 @@ export function Profile() {
           </Reveal>
 
           <div className="grid-12 mt-[clamp(2.5rem,5vw,3.5rem)] gap-y-7 border-t border-rule pt-6">
-            <div className="col-span-2 md:col-span-4">
+            <div className="col-span-2 md:col-span-6">
               <p className="t-meta">BASED IN</p>
               <p className="t-meta mt-2.5 text-ink-2">{siteConfig.location}</p>
             </div>
-            <div className="col-span-2 md:col-span-4">
-              <p className="t-meta">AVAILABILITY</p>
-              <p className="t-meta mt-2.5 flex items-center gap-2.5 text-ink-2">
-                <span className="dot-live shrink-0" aria-hidden="true" />
-                OPEN — SENIOR ROLES
-              </p>
-            </div>
-            <div className="col-span-2 md:col-span-4">
+            <div className="col-span-2 md:col-span-6">
               <p className="t-meta">FOCUS</p>
               <p className="t-meta mt-2.5 text-ink-2">
                 AI-INTEGRATED WEB &amp; MOBILE

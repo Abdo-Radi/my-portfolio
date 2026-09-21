@@ -263,9 +263,7 @@ export function Navbar() {
               >
                 {siteConfig.email}
               </EmailLink>
-              <p className="t-meta text-paper/50">
-                {siteConfig.location} — available for new work
-              </p>
+              <p className="t-meta text-paper/50">{siteConfig.location}</p>
             </div>
           </div>
         </div>

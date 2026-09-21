@@ -33,7 +33,12 @@ export function ProjectPlate({
 
   if (project.image) {
     return (
-      <div className={cn("relative overflow-hidden bg-paper-2", className)}>
+      <div
+        className={cn(
+          "relative size-full overflow-hidden bg-paper-2",
+          className,
+        )}
+      >
         <Image
           src={project.image}
           alt=""

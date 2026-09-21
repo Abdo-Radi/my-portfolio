@@ -12,8 +12,7 @@ import { EmailLink } from "@/components/EmailLink";
  * (05) — the close.
  *
  * The address is the call to action: set in mono at title size, underlined on
- * hover by the drawn rule, with the arrow travelling up and to the right. Only
- * the availability dot carries the signal colour here.
+ * hover by the drawn rule, with the arrow travelling up and to the right.
  *
  * A client component because the arrow is hand-tweened; everything it renders is
  * plain markup that reads fine without scripting.
@@ -85,8 +84,7 @@ export function Endnote() {
           </SplitLines>
 
           <p className="t-body col-span-4 pt-10 md:col-span-4 md:col-start-9 md:pt-0 md:pb-1.5">
-            Open to senior and lead roles. Email is the fastest route; use the
-            form if you would rather type.
+            Email is the fastest route; use the form if you would rather type.
           </p>
         </div>
 
@@ -114,20 +112,12 @@ export function Endnote() {
         <div className="pt-[clamp(3rem,7vw,5.5rem)]">
           <RuleDraw />
           <div className="grid-12 gap-y-8 pt-6">
-            <div className="col-span-2 md:col-span-3">
-              <p className="t-meta">AVAILABILITY</p>
-              <p className="t-meta mt-2.5 flex items-center gap-2.5 text-ink-2">
-                <span className="dot-live shrink-0" aria-hidden="true" />
-                OPEN — SENIOR ROLES
-              </p>
-            </div>
-
-            <div className="col-span-2 md:col-span-3">
+            <div className="col-span-2 md:col-span-4">
               <p className="t-meta">LOCATION</p>
               <p className="t-meta mt-2.5 text-ink-2">{siteConfig.location}</p>
             </div>
 
-            <div className="col-span-2 md:col-span-3">
+            <div className="col-span-2 md:col-span-4">
               <p className="t-meta">ENQUIRIES</p>
               <p className="t-meta mt-2.5 text-ink-2">
                 <Link
@@ -140,7 +130,7 @@ export function Endnote() {
               </p>
             </div>
 
-            <div className="col-span-2 md:col-span-3 md:text-right">
+            <div className="col-span-2 md:col-span-4 md:text-right">
               <p className="t-meta">DOCUMENT</p>
               <p className="t-meta mt-2.5 text-ink-2">
                 <a

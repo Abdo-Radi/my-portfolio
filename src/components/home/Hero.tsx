@@ -76,16 +76,11 @@ export function Hero() {
           stagger={0.07}
           className="grid-12 gap-y-7 pt-6"
         >
-          <p className="t-meta col-span-2 flex items-center gap-2.5 md:col-span-3">
-            <span className="dot-live shrink-0" aria-hidden="true" />
-            AVAILABLE FOR SENIOR ROLES
-          </p>
-
-          <p className="t-meta col-span-2 leading-[1.7] md:col-span-3">
+          <p className="t-meta col-span-2 leading-[1.7] md:col-span-4">
             {siteConfig.specialism}
           </p>
 
-          <p className="t-meta col-span-2 md:col-span-3">
+          <p className="t-meta col-span-2 md:col-span-4">
             <a
               href="#work"
               className="link-draw inline-flex items-center gap-2 hover:text-ink"
@@ -95,7 +90,7 @@ export function Hero() {
             </a>
           </p>
 
-          <p className="t-meta col-span-2 md:col-span-3 md:text-right">
+          <p className="t-meta col-span-2 md:col-span-4 md:text-right">
             {workingYears()}
           </p>
         </Reveal>

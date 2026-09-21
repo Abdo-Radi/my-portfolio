@@ -105,16 +105,8 @@ export default function AboutPage() {
             <span className="text-ink">(01)</span>
             <span>Profile</span>
           </p>
-          <p className="t-meta col-span-4 flex items-center gap-3 md:col-span-6 md:justify-end">
-            <span>{siteConfig.location}</span>
-            <span
-              aria-hidden="true"
-              className="h-px w-6 shrink-0 bg-rule-strong"
-            />
-            <span className="flex items-center gap-2">
-              <span aria-hidden="true" className="dot-live shrink-0" />
-              Available for work
-            </span>
+          <p className="t-meta col-span-4 md:col-span-6 md:text-right">
+            {siteConfig.location}
           </p>
         </div>
 

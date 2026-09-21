@@ -93,13 +93,6 @@ export default function ContactPage() {
                 </p>
               </Row>
 
-              <Row label="Availability">
-                <p className="flex items-center gap-2.5 font-mono text-[0.9375rem] text-ink">
-                  <span className="dot-live shrink-0" aria-hidden="true" />
-                  Available for new work
-                </p>
-              </Row>
-
               <Row label="Response time">
                 <p className="font-mono text-[0.9375rem] text-ink">
                   Within two working days
