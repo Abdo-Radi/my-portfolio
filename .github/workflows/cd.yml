@@ -19,9 +19,29 @@ env:
   NEXT_TELEMETRY_DISABLED: "1"
 
 jobs:
+  # The `secrets` context is readable in a step-level `if` but not a job-level
+  # one, so the check is hoisted into an output. Without this, every push to
+  # main fails CD on a fork or a clone that has no deployment credentials.
+  guard:
+    name: Deployment credentials present?
+    runs-on: ubuntu-latest
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - id: check
+        run: |
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ] && [ -n "${{ secrets.DOCKERHUB_TOKEN }}" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "No DOCKERHUB_TOKEN / VERCEL_TOKEN set — skipping deployment." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
   build-push:
     name: Build & push image (Docker Hub)
     runs-on: ubuntu-latest
+    needs: guard
+    if: needs.guard.outputs.configured == 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

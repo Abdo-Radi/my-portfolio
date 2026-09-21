@@ -7,7 +7,7 @@ Ink on paper · one accent colour · motion that degrades to nothing when you as
 
 [![CI](https://github.com/Abdo-Radi/my-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdo-Radi/my-portfolio/actions/workflows/ci.yml)
 &nbsp;
-[![Tests](https://img.shields.io/badge/tests-32_passing-3C873A?style=for-the-badge)](#-quality-gates)
+[![Tests](https://img.shields.io/badge/tests-40_passing-3C873A?style=for-the-badge)](#-quality-gates)
 &nbsp;
 [![License](https://img.shields.io/badge/license-MIT-111?style=for-the-badge)](./LICENSE)
 
@@ -133,14 +133,21 @@ flowchart LR
     Q --> T["test<br/>vitest + coverage"]
     T --> S["security<br/>npm audit · Lighthouse CI"]
     S --> D["docker<br/>build · run · curl /api/health"]
-    D --> CD{"push to main?"}
-    CD -->|yes| HUB["Docker Hub<br/>latest + git SHA"]
-    HUB --> VER["Vercel production"]
-    VER --> N["commit status<br/>+ job summary"]
-    PR["pull request"] --> PREV["Vercel preview<br/>sticky PR comment"]
+
+    MAIN["push to main"] --> VERCEL["Vercel Git integration<br/>build · deploy · preview per PR"]
+    VERCEL --> LIVE["🌐 production"]
+
+    MAIN --> G{"deployment<br/>secrets set?"}
+    G -->|no| SKIP["CD skipped<br/>pipeline stays green"]
+    G -->|yes| HUB["Docker Hub<br/>latest + git SHA"]
+    HUB --> N["commit status<br/>+ job summary"]
 ```
 
-Each stage gates the next. The `docker` job doesn't just build the image — it **runs the container and curls `/api/health`**, so a build that compiles but won't boot fails CI. Every PR gets an isolated preview deployment with a sticky comment that updates itself instead of stacking up.
+**CI** gates every push and pull request, and each stage gates the next. The `docker` job doesn't just build the image — it **runs the container and curls `/api/health`**, so a build that compiles but won't boot fails CI.
+
+**CD** is opt-in. `cd.yml` and `pr-preview.yml` open with a `guard` job that checks whether the deployment credentials exist and short-circuits when they don't — so a fork, or a clone without secrets, gets a green pipeline instead of a wall of red crosses it can't fix. (The `secrets` context is readable in a step-level `if` but not a job-level one, which is why the check is hoisted into a job output.)
+
+Day-to-day deployment is Vercel's Git integration: production from `main`, an isolated preview for every pull request.
 
 ---
 
@@ -282,7 +289,7 @@ A multi-stage build on `node:20-alpine`: dependencies, then the compile, then a 
 
 ## 📊 Quality gates
 
-**32 tests across 5 files**, all green — API behaviour, component rendering, content-data integrity, and utilities.
+**40 tests across 6 files**, all green — API behaviour, component rendering, content-data integrity, and utilities.
 
 Lighthouse CI runs on every push against a production build, with budgets enforced from [`lighthouserc.json`](./lighthouserc.json):
 

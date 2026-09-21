@@ -150,7 +150,7 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
           from: env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev",
-          to: siteConfig.email,
+          to: env.CONTACT_TO_EMAIL ?? siteConfig.email,
           reply_to: email,
           subject: `Portfolio contact from ${name}`,
           text: `From: ${name} <${email}>\n\n${message}`,
