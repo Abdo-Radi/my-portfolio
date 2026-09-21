@@ -85,5 +85,7 @@ export const projects: Project[] = [
       "This site. Next.js 16 App Router and Tailwind v4 on a twelve-column editorial grid, with GSAP driving the scroll and text choreography. TypeScript strict throughout, tested with Vitest, containerised and shipped through GitHub Actions.",
     tags: ["Next.js", "TypeScript", "Tailwind", "GSAP", "Vitest"],
     image: "/projects/presswork-portfolio.jpg",
+    liveUrl: "https://abdellah-radi.vercel.app",
+    sourceUrl: "https://github.com/Abdo-Radi/my-portfolio",
   },
 ];
