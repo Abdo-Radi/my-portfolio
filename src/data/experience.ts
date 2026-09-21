@@ -29,6 +29,7 @@ export const experience: ExperienceItem[] = [
       "Cut the API into 22 route-service-data modules and hardened 90+ endpoints with Zod validation, argon2 hashing and JWT sessions.",
       "Wired AI into the listing pipeline for generated copy and photo enhancement, then took the product to iOS and Android with React Native, Expo and EAS.",
     ],
+    links: [{ label: "Live site", href: "https://yaluoza.com" }],
   },
   {
     role: "Application Support & Automation Consultant",

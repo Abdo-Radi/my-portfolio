@@ -24,3 +24,6 @@ docker-compose.yml
 # Docs & logs
 README.md
 npm-debug.log*
+
+# Docs & screenshots — only needed on GitHub, not in the image
+docs

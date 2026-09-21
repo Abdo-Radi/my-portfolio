@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { DIAGRAMS } from "@/components/diagrams";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/data/projects";
 
@@ -7,9 +8,11 @@ import type { Project } from "@/data/projects";
  * Cover art for a project.
  *
  * When a project has a real screenshot (`project.image`) it is rendered as-is.
- * Otherwise the plate is set typographically: a hairline press grid, the slug,
- * the initials at display size, and a folio. Because it's built from tokens it
- * inverts correctly with the theme — a raster or gradient asset never would.
+ * Client work whose interface cannot be shown declares a `diagram` instead,
+ * drawn from the same tokens. Failing both, the plate is set typographically:
+ * a hairline press grid, the slug, the initials at display size, and a folio.
+ * Because every variant is built from tokens they all invert correctly with
+ * the theme — a raster or gradient asset never would.
  *
  * One of three deterministic layouts is chosen from the slug so an index of
  * plates reads as a set rather than a repeat. Deterministic, so SSR and client
@@ -38,6 +41,20 @@ export function ProjectPlate({
           sizes="(min-width: 768px) 45vw, 90vw"
           className="object-cover"
         />
+      </div>
+    );
+  }
+
+  if (project.diagram) {
+    const Diagram = DIAGRAMS[project.diagram];
+    return (
+      <div
+        className={cn(
+          "relative flex size-full items-center justify-center overflow-hidden bg-paper-2 p-4 sm:p-6",
+          className,
+        )}
+      >
+        <Diagram />
       </div>
     );
   }

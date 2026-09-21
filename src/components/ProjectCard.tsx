@@ -185,6 +185,8 @@ export function ProjectCard({
                   </a>
                 ) : null}
               </div>
+            ) : project.note ? (
+              <p className="t-meta text-ink-3">{project.note}</p>
             ) : null}
           </Reveal>
         </div>

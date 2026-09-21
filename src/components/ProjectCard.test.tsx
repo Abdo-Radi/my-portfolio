@@ -78,6 +78,33 @@ describe("ProjectCard", () => {
     ).toBeInTheDocument();
   });
 
+  it("shows the note in place of links when no URL exists", () => {
+    render(
+      <ProjectCard
+        project={{
+          ...project,
+          liveUrl: undefined,
+          sourceUrl: undefined,
+          note: "Client platform — internal.",
+        }}
+      />,
+    );
+
+    expect(screen.getByText("Client platform — internal.")).toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
+  });
+
+  it("prefers the links over the note when a URL exists", () => {
+    render(
+      <ProjectCard project={{ ...project, note: "Should not render." }} />,
+    );
+
+    expect(screen.queryByText("Should not render.")).not.toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /open live site for test project/i }),
+    ).toBeInTheDocument();
+  });
+
   it("omits only the missing footer link when one URL is absent", () => {
     render(<ProjectCard project={{ ...project, sourceUrl: undefined }} />);
 

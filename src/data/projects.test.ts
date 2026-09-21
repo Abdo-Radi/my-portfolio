@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { DIAGRAMS } from "@/components/diagrams";
 import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
 
@@ -42,6 +43,27 @@ describe("projects data", () => {
           existsSync(join(publicDir, project.image)),
           `${project.slug}: public${project.image} is missing`,
         ).toBe(true);
+      }
+    }
+  });
+
+  it("points every diagram at a drawing in the registry", () => {
+    // The DiagramKey union already enforces this at compile time; this
+    // documents the contract beside the other data checks.
+    for (const project of projects) {
+      if (project.diagram) {
+        expect(
+          DIAGRAMS[project.diagram],
+          `${project.slug}: no diagram for ${project.diagram}`,
+        ).toBeDefined();
+      }
+    }
+  });
+
+  it("explains every project that carries no link", () => {
+    for (const project of projects) {
+      if (!project.liveUrl && !project.sourceUrl && project.note) {
+        expect(project.note.trim(), `${project.slug}`).not.toBe("");
       }
     }
   });
